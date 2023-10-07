@@ -2,31 +2,10 @@
 #include <fstream>
 #include <string>
 #include <vector>
+
+#include "date.h"
+
 using namespace std;
-
-struct Date {
-    int day;
-    int month;
-    int year;
-
-    void write(std::ostream& out)
-    {
-        out << day << "." << month << "." << year;
-    }
-
-    static Date from_stream(std::istream& in)
-    {
-        Date result;
-        in >> result.day;
-        in.get();
-        in >> result.month;
-        in.get();
-        in >> result.year;
-
-        return result;
-    }
-
-};
 
 
 struct Product {
@@ -63,7 +42,7 @@ int main() {
     vector<Product> products;
     Product k;
 
-    while (false == ist.eof()) {
+    while (false == ist.good()) {
         Product product = Product::from_stream(ist);
 
 
