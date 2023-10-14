@@ -4,33 +4,9 @@
 #include <vector>
 
 #include "date.h"
+#include "product.h"
 
 using namespace std;
-
-
-struct Product {
-    Date data;
-    string name;
-
-    static Product from_stream(std::istream& in)
-    {
-        Product result;
-       in>> result.name;
-        result.data = Date::from_stream(in);
-
-
-       return result;
-    }
-
-
-    void write(std::ostream&out){
-        data.write(out);
-        out << name << endl;
-    }
-
-};
-
-
 
 int main() {
     ifstream ist("in.txt");
@@ -39,15 +15,23 @@ int main() {
         return 0;
     }
 
-    vector<Product> products;
-    Product k;
+    vector<product> products;
+    product k;
 
-    while (false == ist.good()) {
-        Product product = Product::from_stream(ist);
+    while (!ist.eof()) {
+        product product = product::from_stream(ist);
 
+        if (!ist.good())
+            break;
 
         products.push_back(product);
     }
+
+   for (int i = 0; i < products.size(); ++i) {
+       products[i].write(std::cout);
+   }
+
+
 
     return 0;
 }

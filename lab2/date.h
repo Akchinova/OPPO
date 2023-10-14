@@ -9,23 +9,8 @@ struct Date {
     int month;
     int year;
 
-    void write(std::ostream& out)
-    {
-        out << day << "." << month << "." << year;
-    }
-
-    static Date from_stream(std::istream& in)
-    {
-        Date result;
-        in >> result.day;
-        in.get();
-        in >> result.month;
-        in.get();
-        in >> result.year;
-
-        return result;
-    }
-
+    void write(std::ostream& out);
+    static Date from_stream(std::istream& in);
 };
 
 #endif // DATE_H
