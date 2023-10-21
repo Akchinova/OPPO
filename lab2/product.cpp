@@ -1,6 +1,6 @@
 #include<product.h>
 
-void product::write(std::ostream&out)
+void product::write(std::ostream&out) const
 {
     data.write(out);
     out << " " << name << " " << amount << endl;

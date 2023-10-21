@@ -8,6 +8,29 @@
 
 using namespace std;
 
+vector<product> read_products(std::istream& in)
+{
+    vector<product> products;
+    product k;
+
+    while (!in.eof()) {
+        product product = product::from_stream(in);
+
+        if (!in.good())
+            break;
+
+        products.push_back(product);
+    }
+    return products;
+}
+
+void write_products(std::ostream& out, const vector<product>& products)
+{
+    for (size_t i = 0; i < products.size(); ++i) {
+        products[i].write(out);
+    }
+}
+
 int main() {
     ifstream ist("in.txt");
     if (!ist.is_open()){
@@ -15,23 +38,8 @@ int main() {
         return 0;
     }
 
-    vector<product> products;
-    product k;
-
-    while (!ist.eof()) {
-        product product = product::from_stream(ist);
-
-        if (!ist.good())
-            break;
-
-        products.push_back(product);
-    }
-
-   for (int i = 0; i < products.size(); ++i) {
-       products[i].write(std::cout);
-   }
-
-
+    vector<product> products = read_products(ist);
+    write_products(std::cout, products);
 
     return 0;
 }

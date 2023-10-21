@@ -9,7 +9,7 @@ struct product {
     string name;
     int amount;
 
-    void write(std::ostream&out);
+    void write(std::ostream&out) const;
     static product from_stream(std::istream& in);
 };
 

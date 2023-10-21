@@ -11,3 +11,6 @@ SOURCES += \
 HEADERS += \
     date.h \
     product.h
+
+DISTFILES += \
+    ../README.md

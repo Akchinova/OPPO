@@ -1,6 +1,6 @@
 #include "date.h"
 
-void Date::write(std::ostream& out)
+void Date::write(std::ostream& out) const
 {
     out << day << "." << month << "." << year;
 }

@@ -9,7 +9,7 @@ struct Date {
     int month;
     int year;
 
-    void write(std::ostream& out);
+    void write(std::ostream& out) const;
     static Date from_stream(std::istream& in);
 };
 

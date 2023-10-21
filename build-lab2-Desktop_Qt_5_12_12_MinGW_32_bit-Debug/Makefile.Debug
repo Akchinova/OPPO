@@ -54,7 +54,7 @@ OBJECTS       = debug/main.o \
 		debug/product.o \
 		debug/date.o
 
-DIST          =  date.h \
+DIST          = ../README.md date.h \
 		product.h ..\lab2\main.cpp \
 		..\lab2\product.cpp \
 		..\lab2\date.cpp
